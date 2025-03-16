@@ -1,0 +1,1227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* Preloader Full Screen */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Fullscreen Background Video */
+.bg-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(40%); /* Dark effect */
+}
+
+/* Loader Box */
+.loader-box {
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(20, 20, 20, 0.8); /* Glassmorphic Effect */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Loader Animation */
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid #64ffda; /* Neon Green */
+    border-radius: 50%;
+    animation: spin 1s linear infinite, glow 1.5s infinite alternate;
+    margin-top: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px #64ffda; }
+    100% { box-shadow: 0 0 15px #64ffda; }
+}
+
+/* IT Icon */
+.loader-box i {
+    font-size: 50px;
+    color: #64ffda;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Hide Main Content Initially */
+.content {
+    display: none;
+}
+
+/* Smooth Fade-Out Effect */
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out;
+}
+
+/* Banner Section */
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    /* background: rgba(0, 0, 0, 0.9);  */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    /* position: sticky; */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    
+}
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+   
+}
+
+.nav-links li {
+    margin: 0 15px;
+    
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+   color: rgb(227, 46, 46);
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #1e4fa9;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Open Animation */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Navbar */
+@media screen and (max-width: 992px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        /* background: rgba(30, 60, 114, 0.95);  */
+        flex-direction: column;
+        text-align: center;
+        transition: left 0.5s ease-in-out;
+        padding: 20px 0px;
+       
+     
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Show hamburger menu in mobile view */
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Banner Section */
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Fullscreen height */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Background Video */
+.banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark transparent effect */
+}
+
+/* Text Over Video */
+.banner-text {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-get-started {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff8c00, #ffcc00);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-get-started:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ffcc00, #ff8c00);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .banner-text h1 {
+        font-size: 2rem;
+    }
+
+    .banner-text p {
+        font-size: 1.2rem;
+    }
+
+    .btn-get-started {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+/* get started button  */
+
+
+/* Get Started Button */
+.btn-get-started {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    /* background: linear-gradient(135deg, rgba(40, 36, 36, 0.61), grey);  */
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.3);
+}
+
+.btn-get-started:hover {
+    /* background: linear-gradient(135deg, #feb47b, #ff7e5f); */
+    box-shadow: 0 6px 15px rgba(255, 126, 95, 0.5);
+    transform: translateY(-3px);
+}
+
+.btn-get-started:active {
+    transform: scale(0.95);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .banner-text h1 {
+        font-size: 32px;
+    }
+
+    .banner-text p {
+        font-size: 16px;
+    }
+    
+    .btn-get-started {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+
+/* Services Section - Dark Theme */
+
+/* Services Section */
+.services {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Title & Subtitle */
+.section-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+/* Title */
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    transition: color 0.4s ease-in-out;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Scrollable Container */
+.services-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.services-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Hide Scrollbar */
+.services-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Service Card */
+.service-card {
+    min-width: 350px;
+    max-width: 380px;
+    min-height: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    transition: background 0.4s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Bubble Effect */
+.service-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(135, 206, 250, 0.6);
+    border-radius: 50%;
+    top: -40px;
+    right: -40px;
+    transition: transform 0.4s ease-in-out, background 0.4s ease-in-out
+}
+
+/* Hover Effects */
+.service-card:hover {
+    background: linear-gradient(135deg, #87CEFA, #0056b3); /* Gradient Transition */
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+    transform: scale(1.2);
+}
+
+/* Service Icon */
+.service-icon {
+    font-size: 50px;
+    color: #0056b3;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+/* Rotate Icon on Hover */
+.service-card:hover .service-icon {
+    transform: rotate(360deg);
+    color: white;
+}
+
+/* Read More Button */
+.read-more {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.read-more:hover {
+    background: #003c80;
+}
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+/* Left Scroll Button */
+.scroll-btn.left {
+    left: 10px;
+}
+
+/* Right Scroll Button */
+.scroll-btn.right {
+    right: 10px;
+}
+
+/* Hover Effect */
+.scroll-btn:hover {
+    background: #003c80;
+    transform: scale(1.1);
+}
+
+/* Scrollable Services Container */
+.services-wrapper {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 20px;
+}
+
+.services-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+/* Hide Scrollbar */
+.services-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* testimonials  */
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f4f4f4;
+    color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Title */
+.testimonials h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #0056b3; /* Dark Blue */
+}
+
+/* Scrollable Container */
+.testimonials-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Hide Scrollbar */
+.testimonials-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+    max-width: 450px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    white-space: normal;
+    height: 30vh;
+}
+
+/* Hover Effect */
+.testimonial-card:hover {
+    background: #87CEFA; /* Light Sky Blue */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Client Image */
+.testimonial-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 6px; 
+    transition: transform 0.3s;
+}
+
+/* Hover Effect on Image */
+.testimonial-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Client Number Box */
+.client-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #0056b3;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Testimonial Content */
+.testimonial-content {
+    flex: 1;
+}
+
+/* Client Name */
+.testimonial-content h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0056b3; /* Dark Blue */
+}
+
+/* Client Company */
+.testimonial-content span {
+    font-size: 15px;
+    opacity: 0.8;
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Review Text */
+.testimonial-content p {
+    font-size: 16px;
+    font-style: italic;
+    color: #333;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 86, 179, 0.8);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.scroll-btn:hover {
+    background: rgba(0, 86, 179, 1);
+}
+
+/* Positioning Scroll Buttons */
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .testimonial-card {
+        min-width: 320px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .testimonial-card img {
+        margin-bottom: 10px;
+    }
+
+    .scroll-btn {
+        padding: 10px 14px;
+        font-size: 18px;
+    }
+}
+
+/* contact us  */
+/* Contact Section with Background */
+.contact-section {
+    position: relative;
+    background: url('images/contact-us2.jpg') no-repeat center center/cover;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Dark Overlay */
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Contact Container */
+/* Contact Container - Hidden by Default */
+.contact-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When the class "show" is added, animation will trigger */
+.contact-container.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Left: Contact Image */
+.contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Right: Contact Form */
+.contact-form {
+    flex: 1;
+    padding: 40px;
+    color: white;
+}
+
+.contact-form h2 {
+    font-size: 32px;
+    color: #ffcc00;
+}
+
+.contact-form p {
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #ccc;
+}
+
+/* Send Button */
+.send-btn {
+    background: linear-gradient(45deg, #ff8c00, #ffcc00);
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ffcc00, #ff8c00);
+}
+
+/* Responsive */
+/* @media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-image {
+        padding: 0;
+    }
+} */
+/* Google Map Container */
+.map-container {
+    width: 70%;
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    margin-right: 10px;
+}
+
+/* Map Hover Effect */
+.map-container:hover {
+    transform: scale(1.02);
+}
+
+/* Tablets (Max Width: 1024px) */
+@media (max-width: 1024px) {
+    .contact-section {
+        padding: 60px 15px;
+        height: auto;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .contact-image img {
+        max-width: 80%;
+    }
+
+    .contact-form {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-form h2 {
+        font-size: 28px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .send-btn {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .map-container {
+        width: 85%;
+    }
+}
+
+/* Mobile Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 40px 10px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .contact-image {
+        display: none; /* Hide image on small screens for better spacing */
+    }
+
+    .contact-form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-form h2 {
+        font-size: 24px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .send-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+/* Small Phones (Max Width: 480px) */
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 10px;
+        height: 100vh;
+    
+    }
+
+    .contact-form h2 {
+        font-size: 22px;
+    }
+
+    .contact-form p {
+        font-size: 14px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 13px;
+        padding: 7px;
+    }
+
+    .send-btn {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+/* Blog / Insights  */
+
+/* News Section Styling */
+.news-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bubble Effect */
+.news-section::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    top: 10%;
+    left: -50px;
+    animation: floating 6s infinite ease-in-out alternate;
+}
+
+.news-section::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    bottom: 15%;
+    right: -40px;
+    animation: floating 5s infinite ease-in-out alternate-reverse;
+}
+
+/* Floating Animation */
+@keyframes floating {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Section Title */
+.section-title {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    color: #d9f0ff;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* News Container */
+.news-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* News Card */
+.news-card {
+    background: white;
+    width: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h3 {
+    font-size: 20px;
+    color: #007BFF;
+}
+
+.news-content p {
+    color: #555;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Read More Button */
+.read-more {
+    display: inline-block;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.read-more:hover {
+    color: #f5f5f5;
+}
+
+/* Hover Effects */
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Unique Footer Background */
+.footer {
+    position: relative;
+    background: linear-gradient(135deg, #001F3F, #007BFF, #00C6FF);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Adding Animated Background Circles */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: moveCircle 6s infinite linear;
+}
+
+.footer::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: moveCircle 8s infinite linear reverse;
+}
+
+/* Keyframes for Circle Animation */
+@keyframes moveCircle {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Quick Links */
+.footer-links h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Social Media Icons */
+.footer-social h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* Copyright */
+.footer-copy {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-social {
+        margin-bottom: 20px;
+    }
+}

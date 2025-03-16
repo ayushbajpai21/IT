@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <section  id="contact, home" class="contact-section">
+           <!-- Google Maps Embed at the Bottom -->
+           <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28472.480293457815!2d80.9304063877409!3d26.86983357900465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sit%20company!5e0!3m2!1sen!2sin!4v1742117391306!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="contact-overlay"></div>
+        <div class="contact-container">
+            <!-- Left: Contact Image -->
+            <div class="contact-image">
+                <img src="images/projectThumb1_1.png" alt="Contact Us">
+            </div>
+    
+            <!-- Right: Contact Form -->
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <p>Feel free to reach out. We’d love to hear from you!</p>
+                <form id="contactForm">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+       
+    </section>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
